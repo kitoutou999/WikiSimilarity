@@ -1,0 +1,27 @@
+MEMO : 
+
+- Mettre plus de schémas et d'images et revoir les schemas.
+- Expliquer chaque brique des schemas.
+- Toutes les questions qu'on se pose sur le PDF, il faut les expliquer avec exemple(s).
+- Mettre des images pour expliquer Wikidata et la comparaison des liens wikipédia.
+- IL FAUT 3 VERSIONS : TEXTUEL, THEORIQUE et EXEMPLIFIE.
+- Pour les explications, renvoyer vers le calcul plus loin.
+- A travers les exemples il faut citer "à la figure 1 ...".
+- Expliquer nos choix (exemple : Pourquoi ce calcul ? Ce seuil ? Scores ? Formules ?). 
+- Eviter les tirets/listes, plus de paragraphes.
+- Quand on donne un pourcentage, que signifie-il ?
+- 2.3 : comment confronter le gold standard avec les résultats des approches ? Quelles sont les métriques intéréssantes ?0
+- 3.1.1 : phrase mauvaises.
+- Revoir les explications des métriques.
+- 3.3.2 : ???
+
+- VP : Similaire classé comme similaire.
+- FP : Dissimilaire classé comme similaire.
+- FN : Similaire classé comme dissimilaire.
+
+- A la fin dire dans quel langage et quelles bibliothèques a-t-on utilisé pour l'application.
+
+- Eventuellement plusieurs vecteurs expliquer les deux methodes intel.
+
+- README : mettre les executables sur TOUT (génération du gold, json, etc...). 
+

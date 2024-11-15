@@ -1,0 +1,49 @@
+{
+  "nom": "Victoria",
+  "P31": "Q11879590",
+  "P1560": "Q539581",
+  "P460": [
+    "Q3558342",
+    "Q16282527",
+    "Q18328177",
+    "Q18328183",
+    "Q18328192"
+  ],
+  "P1888": "Victoria",
+  "P1889": "Q537094",
+  "P1533": "Q23831647",
+  "P1705": "{'text': 'Victoria', 'language': 'mul'}",
+  "P282": "Q8229",
+  "P3878": "V236",
+  "P3879": "3827",
+  "P3880": "FKTR11",
+  "P4284": "4014/Victoria",
+  "P407": [
+    "Q7411",
+    "Q1860",
+    "Q1321",
+    "Q7913"
+  ],
+  "P138": "Q308902",
+  "P5323": [
+    "Q21644845",
+    "Q665807"
+  ],
+  "P373": "Victoria (given name)",
+  "P1449": [
+    "{'text': 'Vicky', 'language': 'es'}",
+    "{'text': 'Vikki', 'language': 'en'}"
+  ],
+  "P361": "Q63430720",
+  "P1343": "Q151",
+  "P443": [
+    "Nl-Victoria.ogg",
+    "LL-Q7913 (ron)-KlaudiuMihaila-Victoria.wav",
+    "LL-Q9027 (swe)-Moonhouse-Victoria.wav"
+  ],
+  "P4342": "Victoria",
+  "P10050": "Victoria",
+  "P8313": "Victoria_-_pigenavn",
+  "P8168": "Q32433",
+  "P10463": "3197"
+}
