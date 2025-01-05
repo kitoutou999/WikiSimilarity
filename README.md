@@ -86,6 +86,6 @@ Tom David, Florian Pépin, Emilien Huron
 - **Calculs préenregistrés** :
   - Version BERT : `intel/pre_calcule_similaritiesV2.json`
   - Version intelligente V1 : `intel/pre_calcule_similaritiesV1.json`
-- **Analyse des résultats** : Intersection des VP, FP, FN dans `intel/AnalyseStats`
+- **Analyse des résultats** : Intersection des VP, FP, FN dans `intel/AnalyseStats`.
 
 ---
