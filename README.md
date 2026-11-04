@@ -1,91 +1,44 @@
-# 📊 Projet de Similarité sur Wikipédia
+# Wikipedia Similarity
 
-**Créateurs du projet :**  
-Tom David, Florian Pépin, Emilien Huron
+A 2024 third-year computer science project for the language technology course at Université Caen Normandie. It compares Wikipedia biographies using shared links and cached BERT similarities against a reference derived from structured JSON attributes.
 
----
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset=".github/assets/precision-dark.svg">
+  <img src=".github/assets/precision-light.svg" width="100%" alt="Precision on the bundled corpus: shared-link baseline 28.50 percent, cached BERT similarities 32.37 percent">
+</picture>
 
-## 🎯 Exécution du Programme Principal
+## Results
 
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 main.py`
-   - **Optionnel** : pour afficher un graphique des (VP, FP, FN), utiliser la commande : `python3 -u -X utf8 main.py -s`
-3. Attendre les résultats affichés dans le terminal.
+A local run of `main.py` on the bundled corpus produced the following global metrics. VP, FP and FN are the program's labels for true positives, false positives and false negatives.
 
----
+| Approach | Precision | VP | FP | FN |
+|---|---:|---:|---:|---:|
+| Shared-link baseline | 28.50% | 177 | 444 | 444 |
+| Cached BERT similarities | 32.37% | 201 | 420 | 420 |
 
-## 🔍 Exécution des Programmes Secondaires
+The corpus contains 97 biographies and 4,656 cached pairs. The generated reference labels 13.34% of pairs as similar; each approach selects a matching proportion of its highest-scoring pairs.
 
-### Gold Standard
+## Getting started
 
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 gold/Gold.py`
-3. Attendre les résultats affichés dans le terminal.
+Requires Python 3 and Matplotlib. From the repository root, using a Python environment of your choice:
 
-### Approche Naïve
+```bash
+python -m pip install matplotlib
+cd dph_langue/projet
+python -u -X utf8 main.py
+python -u -X utf8 main.py -s
+```
 
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 naive/NaiveCompare.py`
-3. Attendre les résultats affichés dans le terminal.
+The second run also opens a chart of the overlap between the approaches' VP, FP and FN sets. Evaluation uses local files and cached scores, so it does not require Wikipedia access or a BERT download. It rewrites the intersection reports in `intel/AnalyseStats/`.
 
-### Approche Intelligente (Version Finale)
+## How it works
 
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 intel/intelligente.py`
-3. Attendre les résultats affichés dans le terminal.
+`gold/Gold.py` derives a threshold from JSON attribute similarities. `naive/NaiveCompare.py` ranks link-set Jaccard similarities. `intel/intelligente.py` loads `intel/pre_calcule_similaritiesV2.json`; `intel/BertSearch.py` contains the separate BERT score-generation code. The French report is in `dph_langue/rapport/`.
 
----
+## Limitations
 
-## 🗃️ Création des Corpus
+The reference is generated heuristically, rather than annotated by people. Pair keys preserve file order instead of normalizing it, so the evaluation can depend on directory enumeration order. The default evaluation uses cached BERT scores, not the earlier TF-IDF implementation.
 
-### Extraction du Corpus Hyperliens (Wikipedia)
+## Credits
 
-⚠️ **Librairie requise** : `bs4`
-
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 naive/extract_link.py`
-3. Attendre les résultats affichés dans le terminal.
-
-### Extraction du Corpus Texte (Wikipedia)
-
-⚠️ **Librairie requise** : `wikipediaapi`
-
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 intel/extract_wikipedia.py`
-3. Attendre les résultats affichés dans le terminal.
-
----
-
-## 🧠 Différentes Parties de l'Approche Intelligente
-
-### Version 1 de l’Approche Intelligente
-
-⚠️ **Librairies requises** : `sklearn`, `scikit-learn`, `tqdm`  
-⚠️ **Temps d'exécution minimum** : 10 minutes
-
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 intel/calculate_similarity.py`
-3. Attendre les résultats affichés dans le terminal.
-
-### Calculs avec BERT
-
-⚠️ **Librairies requises** : `transformers`, `torch`, `tqdm`  
-⚠️ **Temps d'exécution minimum** : 50 minutes (avec indicateur de progression)
-
-1. Ouvrir un terminal dans le dossier du projet.
-2. Exécuter la commande : `python3 -u -X utf8 intel/BertSearch.py`
-3. Attendre les résultats affichés dans le terminal.
-
----
-
-## ℹ️ Informations Supplémentaires
-
-- **peopleJson2** : Corpus WikiData en format JSON
-- **peopleLink** : Corpus Wikipedia en format Hyperliens
-- **peopleText** : Corpus Wikipedia en format Texte
-- **Calculs préenregistrés** :
-  - Version BERT : `intel/pre_calcule_similaritiesV2.json`
-  - Version intelligente V1 : `intel/pre_calcule_similaritiesV1.json`
-- **Analyse des résultats** : Intersection des VP, FP, FN dans `intel/AnalyseStats`.
-
----
+Tom David, Florian Pépin and Emilien Huron.
